@@ -3,5 +3,11 @@
 {% block title %}Movie details{% endblock %}
 
 {% block body %}
+    <h1>{{ movie.title }}</h1>
 
+    <p>
+        {{ movie.overview }}
+    </p>
+
+    <img src="{{ movie.poster_path }}">
 {% endblock %}
