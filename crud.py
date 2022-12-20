@@ -13,6 +13,9 @@ def create_movie(title, overview, release_date, poster_path):
         poster_path=poster_path
     )
 
+def get_movies():
+    return Movie.query.all()
+
 def create_rating(user, movie, score):
     rating = Rating(
         user=user, 
@@ -23,6 +26,9 @@ def create_rating(user, movie, score):
     return rating
 
     return movie
+
+
+
 
 if __name__ == "__main__":
     from server import app
