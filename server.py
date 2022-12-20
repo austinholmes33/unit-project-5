@@ -5,6 +5,7 @@ from model import connect_to_db, db
 import crud
 from jinja2 import StrictUndefined
 
+
 app = Flask(__name__)
 app.secret_key = "dev"
 app.jinja_env.undefined = StrictUndefined
@@ -54,8 +55,8 @@ def create_user():
 @app.route("/login", methods=["POST"])
 def login_user():
 
-    email = request.form.get()
-    password = request.form.get()
+    email = request.form.get("email")
+    password = request.form.get("password")
 
     user = crud.get_user_by_email(email)
     if not user or user.password != password:
@@ -69,9 +70,30 @@ def login_user():
 def create_rating(movie_id):
 
     current_user = session.get("user_email")
-    rating = request.form.get("rating")
+    rating_score = request.form.get("rating")
 
-    if current_user
+    if current_user is None:
+        flash("Please log in to be able to rate movies")
+    else:
+        user = crud.get_user_by_email(current_user)
+        movie = crud.get_movie_by_id(movie_id)
+        rating = crud.create_rating(user, movie, int(rating_score))
+        db.session.add(rating)
+        db.session.commit()
+
+        flash(f"Your rating of {rating_score} has been assigned")
+    
+    return redirect(f"/movies/{movie_id}")
+
+@app.route("/update_Rating", methods=["POST"])
+def update_rating():
+    rating_id = request.json["rating_id"]
+    updated_score = request.json["updated_score"]
+    crud.update_rating(rating_id, updated_score)
+    db.session.commit
+
+    return "Rating has been updated"
+
 
 if __name__ == "__main__":
     connect_to_db(app)
