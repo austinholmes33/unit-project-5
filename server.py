@@ -35,7 +35,7 @@ def all_users():
 @app.route("/users/<user_id>")
 def show_user(user_id):
     user = crud.get_user_by_id(user_id)
-    return render_template("user_details", user=user)
+    return render_template("user_details.html", user=user)
 
 @app.route("/users", methods=["POST"])
 def create_user():
@@ -66,7 +66,7 @@ def login_user():
         flash(f"Login successful")
     return redirect("/")
 
-@app.route("/movies/<movie_id?/ratings", methods=["POST"])
+@app.route("/movies/<movie_id>/ratings", methods=["POST"])
 def create_rating(movie_id):
 
     current_user = session.get("user_email")
