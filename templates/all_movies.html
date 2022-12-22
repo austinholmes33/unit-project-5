@@ -2,12 +2,14 @@
 {% block title %}All Movies{% endblock %}
 
 {% block body %}
+<div class="all-movies-header">
     <h1>All Movies</h1>
+</div>
 
-    <ul>
+    <ul class="all-movies-list">
         {% for movie in movies %}
             <li>
-                <a href="/movies/{{ movie.movie_id }}">
+                <a class="movie-link" href="/movies/{{ movie.movie_id }}">
                     {{ movie.title }}
                 </a>
             </li>

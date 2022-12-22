@@ -2,12 +2,14 @@
 {% block title %}All Users{% endblock %}
 
 {% block body %}
+<div class="all-users-header">
     <h1>All Users</h1>
+</div>
 
-    <ul>
+    <ul class="all-users-list">
         {% for user in users %}
             <li>
-                <a href="/users/{{ user.user_id }}">
+                <a class="user-link" href="/users/{{ user.user_id }}">
                     {{ user.email }}
                 </a>
             </li>

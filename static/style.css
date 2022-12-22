@@ -1,3 +1,7 @@
+body {
+    background-color: lavender;
+}
+
 .navbar {
     display: flex;
     justify-content: flex-end;
@@ -11,6 +15,7 @@ body {
 .account-header {
     display: flex;
     justify-content: center;
+    margin-top: 350px;
 }
 
 .login-header {
@@ -87,5 +92,33 @@ body {
 }
 
 .user-photo {
+    border: solid black 2px;
+}
+
+.all-movies-header {
+    margin-left: 5%;
+    margin-top: 50px;
+    text-decoration: underline;
+}
+
+.all-movies-list {
+    margin-left: 5%;
+}
+
+.movie-link:hover {
+    border: solid black 2px;
+}
+
+.all-users-header {
+    margin-left: 5%;
+    margin-top: 50px;
+    text-decoration: underline;
+}
+
+.all-users-list {
+    margin-left: 5%;
+}
+
+.user-link:hover {
     border: solid black 2px;
 }
