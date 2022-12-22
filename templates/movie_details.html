@@ -3,14 +3,22 @@
 {% block title %}Movie details{% endblock %}
 
 {% block body %}
+<div class="title">
     <h1>{{ movie.title }}</h1>
+</div>
 
+<div class="overview">
     <p>
         {{ movie.overview }}
     </p>
+</div>
 
+<div class="movie-form-header">
+<h1>Rate The Film!</h1>
+</div>
+
+<div class="movie-form">
     {% if session.get('user_email') %}
-    <h1>Rate The Film!</h1>
     <form action="/movies/{{ movie.movie_id }}/ratings" method="POST">
         <select name="rating">
             <option value="1">1</option>
@@ -22,6 +30,7 @@
         <input type="submit">
     </form>
     {% endif %}
+</div>
+    <img class="movie-img" src="{{ movie.poster_path }}">
 
-    <img src="{{ movie.poster_path }}">
 {% endblock %}
