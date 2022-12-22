@@ -3,7 +3,15 @@
 {% block title %}User details{% endblock %}
 
 {% block body %}
+<div class="user-header">
     <h1>{{ user.email }}</h1>
+</div>
+
+<div class="user-photo-container">
+    <img class="user-photo" src="https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460__340.png">
+</div>
+
+<div class="user-ratings">
     <ul>
         {% for rating in user.ratings %}
             <li>
@@ -14,4 +22,5 @@
             </li>
         {% endfor %}
         </ul>
+</div>
 {% endblock %}

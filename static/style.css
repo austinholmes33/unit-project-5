@@ -45,7 +45,6 @@ body {
     justify-content: center;
     margin-top: 50px;
     text-decoration: underline;
-
 }
 
 .overview {
@@ -54,19 +53,39 @@ body {
     display: flex;
     justify-content: center;
     margin-top: 50px;
-
 }
 
 .movie-form-header {
     display: flex;
     justify-content: center;
     margin-top: 20px;
-
 }
 
 .movie-form {
     display: flex;
     justify-content: center;    
     margin-top: 20px;
+}
 
+.user-header {
+    display: flex;
+    justify-content: center;
+    margin-top: 50px;
+    text-decoration: underline;
+}
+
+.user-ratings {
+    display: flex;
+    justify-content: center;    
+    margin-top: 20px;
+}
+
+.user-photo-container {
+    display: flex;
+    justify-content: center;    
+    margin-top: 20px;
+}
+
+.user-photo {
+    border: solid black 2px;
 }
